@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Questionário de orçamento para Agente de IA — Anderson Quintanilha" />
+  <title>Orçamento — Anderson Quintanilha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="orcamento.css" />
+</head>
+<body>
+
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <header class="top-bar" role="banner">
+    <a href="index.html" class="back-btn" aria-label="Voltar para a página inicial">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Voltar
+    </a>
+    <div class="top-logo" aria-label="Anderson Quintanilha">
+      <span class="logo-a">A</span><span class="logo-slash">/</span><span class="logo-q">Q</span>
+    </div>
+  </header>
+
+  <div class="progress-track" role="progressbar" aria-label="Progresso do questionário" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+
+  <main class="quiz-wrapper" role="main">
+
+    <!-- SEÇÃO 1 — Dados de contato -->
+    <section class="quiz-section active" data-section="0" aria-labelledby="s0-title">
+      <div class="section-inner">
+        <span class="section-badge">1 de 8 · Dados de contato</span>
+        <h1 class="section-title" id="s0-title">Antes de começarmos</h1>
+        <p class="section-desc">Precisamos de algumas informações básicas para dar continuidade ao orçamento.</p>
+        <div class="fields-wrap">
+          <div class="field-group">
+            <label class="field-label" for="q-nome">Qual é o seu nome?</label>
+            <input class="field-input" type="text" id="q-nome" name="nome" placeholder="Digite seu nome" autocomplete="name" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="q-whatsapp">Qual é o seu WhatsApp?</label>
+            <input class="field-input" type="tel" id="q-whatsapp" name="whatsapp" placeholder="(21) 99999-9999" autocomplete="tel" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 2 — Contexto geral -->
+    <section class="quiz-section" data-section="1" aria-labelledby="s1-title">
+      <div class="section-inner">
+        <span class="section-badge">2 de 8 · Contexto geral</span>
+        <h2 class="section-title" id="s1-title">Sobre o negócio</h2>
+        <p class="section-desc">Entender o contexto ajuda a dimensionar o projeto corretamente.</p>
+        <div class="fields-wrap">
+          <div class="field-group">
+            <label class="field-label">Qual é o segmento de atuação?</label>
+            <div class="chips-wrap" data-field="segmento" data-multiple="false">
+              <button class="chip" type="button">E-commerce</button>
+              <button class="chip" type="button">Saúde</button>
+              <button class="chip" type="button">Educação</button>
+              <button class="chip" type="button">Serviços B2B</button>
+              <button class="chip" type="button">Imobiliário</button>
+              <button class="chip" type="button">Financeiro</button>
+              <button class="chip" type="button">Varejo físico</button>
+              <button class="chip" type="button">Outro</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Qual o porte da empresa?</label>
+            <div class="chips-wrap" data-field="porte" data-multiple="false">
+              <button class="chip" type="button">MEI / autônomo</button>
+              <button class="chip" type="button">Pequena (até 50 func.)</button>
+              <button class="chip" type="button">Média (50–500 func.)</button>
+              <button class="chip" type="button">Grande (500+ func.)</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="q-contexto-extra">Alguma informação extra sobre o negócio?</label>
+            <textarea class="field-textarea" id="q-contexto-extra" name="contexto_extra" placeholder="Ex.: atendemos clínicas odontológicas em todo o Brasil..." rows="3"></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3 — Canal de atendimento -->
+    <section class="quiz-section" data-section="2" aria-labelledby="s2-title">
+      <div class="section-inner">
+        <span class="section-badge">3 de 8 · Canal de atendimento</span>
+        <h2 class="section-title" id="s2-title">Onde o agente vai atuar?</h2>
+        <p class="section-desc">O canal impacta diretamente no custo e complexidade de integração.</p>
+        <div class="fields-wrap">
+          <div class="field-group">
+            <label class="field-label">Em quais canais o agente precisa funcionar? <span class="multi-hint">(múltipla escolha)</span></label>
+            <div class="chips-wrap" data-field="canais" data-multiple="true">
+              <button class="chip" type="button">WhatsApp</button>
+              <button class="chip" type="button">Site (chat widget)</button>
+              <button class="chip" type="button">Instagram DM</button>
+              <button class="chip" type="button">Telegram</button>
+              <button class="chip" type="button">E-mail</button>
+              <button class="chip" type="button">Ligação (voz)</button>
+              <button class="chip" type="button">App próprio</button>
+              <button class="chip" type="button">Outro</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Volume estimado de atendimentos por mês?</label>
+            <div class="chips-wrap" data-field="volume_mensal" data-multiple="false">
+              <button class="chip" type="button">Até 500</button>
+              <button class="chip" type="button">500–2.000</button>
+              <button class="chip" type="button">2.000–10.000</button>
+              <button class="chip" type="button">Acima de 10.000</button>
+              <button class="chip" type="button">Não sei ainda</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">O agente precisa operar fora do horário comercial?</label>
+            <div class="chips-wrap" data-field="horario" data-multiple="false">
+              <button class="chip" type="button">Sim, 24/7</button>
+              <button class="chip" type="button">Só fora do horário comercial</button>
+              <button class="chip" type="button">Apenas em horário comercial</button>
+              <button class="chip" type="button">Não sei</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 4 — Funcionalidades -->
+    <section class="quiz-section" data-section="3" aria-labelledby="s3-title">
+      <div class="section-inner">
+        <span class="section-badge">4 de 8 · Funcionalidades</span>
+        <h2 class="section-title" id="s3-title">O que o agente precisa fazer?</h2>
+        <p class="section-desc">Marque tudo que se aplica ao escopo inicial do projeto.</p>
+        <div class="fields-wrap">
+          <div class="field-group">
+            <label class="field-label">Funcionalidades esperadas <span class="multi-hint">(múltipla escolha)</span></label>
+            <div class="chips-wrap" data-field="funcoes" data-multiple="true">
+              <button class="chip" type="button">Responder dúvidas frequentes (FAQ)</button>
+              <button class="chip" type="button">Qualificar leads</button>
+              <button class="chip" type="button">Agendar reuniões / consultas</button>
+              <button class="chip" type="button">Enviar propostas ou orçamentos</button>
+              <button class="chip" type="button">Acompanhar status de pedidos</button>
+              <button class="chip" type="button">Escalar para humano</button>
+              <button class="chip" type="button">Coletar dados do cliente</button>
+              <button class="chip" type="button">Enviar documentos / links</button>
+              <button class="chip" type="button">Fazer pesquisa de satisfação (NPS)</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Quando o atendimento não for resolvido pelo agente, o que deve acontecer?</label>
+            <div class="chips-wrap" data-field="escalada" data-multiple="false">
+              <button class="chip" type="button">Transferir para humano no mesmo canal</button>
+              <button class="chip" type="button">Abrir ticket no suporte</button>
+              <button class="chip" type="button">Enviar e-mail para a equipe</button>
+              <button class="chip" type="button">Apenas registrar e encerrar</button>
+              <button class="chip" type="button">Não sei</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 5 — Base de conhecimento -->
+    <section class="quiz-section" data-section="4" aria-labelledby="s4-title">
+      <div class="section-inner">
+        <span class="section-badge">5 de 8 · Base de conhecimento</span>
+        <h2 class="section-title" id="s4-title">Com o que o agente vai trabalhar?</h2>
+        <p class="section-desc">A qualidade e o formato da base de conhecimento definem boa parte do esforço de implementação.</p>
+        <div class="fields-wrap">
+          <div class="field-group">
+            <label class="field-label">Que tipo de conteúdo o agente precisa conhecer? <span class="multi-hint">(múltipla escolha)</span></label>
+            <div class="chips-wrap" data-field="base" data-multiple="true">
+              <button class="chip" type="button">FAQ / perguntas frequentes</button>
+              <button class="chip" type="button">Catálogo de produtos / serviços</button>
+              <button class="chip" type="button">Políticas e regras internas</button>
+              <button class="chip" type="button">Scripts de vendas</button>
+              <button class="chip" type="button">Documentos técnicos / manuais</button>
+              <button class="chip" type="button">Ainda não está estruturado</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Como esse conteúdo está hoje? <span class="multi-hint">(múltipla escolha)</span></label>
+            <div class="chips-wrap" data-field="base_formato" data-multiple="true">
+              <button class="chip" type="button">Planilha / Excel</button>
+              <button class="chip" type="button">Documentos Word / PDF</button>
+              <button class="chip" type="button">Site / página web</button>
+              <button class="chip" type="button">Sistema interno</button>
+              <button class="chip" type="button">Na cabeça das pessoas</button>
+              <button class="chip" type="button">Não existe ainda</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Com que frequência esse conteúdo muda?</label>
+            <div class="chips-wrap" data-field="atualizacao" data-multiple="false">
+              <button class="chip" type="button">Raramente</button>
+              <button class="chip" type="button">Mensalmente</button>
+              <button class="chip" type="button">Semanalmente</button>
+              <button class="chip" type="button">Quase todo dia</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 6 — Integração e CRM -->
+    <section class="quiz-section" data-section="5" aria-labelledby="s5-title">
+      <div class="section-inner">
+        <span class="section-badge">6 de 8 · Integração e CRM</span>
+        <h2 class="section-title" id="s5-title">Integrações e CRM</h2>
+        <p class="section-desc">Mesmo sem decisão definida, entender o cenário atual ajuda a planejar o escopo.</p>
+        <div class="section-alert" role="note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Esta seção trata de CRM e integrações. Responda conforme a situação atual.
+        </div>
+        <div class="fields-wrap">
+          <div class="field-group">
+            <label class="field-label">Há interesse em integrar com CRM?</label>
+            <div class="chips-wrap" data-field="crm_interesse" data-multiple="false">
+              <button class="chip" type="button">Sim, já tenho CRM e quero integrar</button>
+              <button class="chip" type="button">Sim, mas ainda não tenho CRM</button>
+              <button class="chip" type="button">Talvez no futuro</button>
+              <button class="chip" type="button">Não, por enquanto</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="q-crm-qual">Se tiver CRM, qual é?</label>
+            <input class="field-input" type="text" id="q-crm-qual" name="crm_qual" placeholder="Ex.: HubSpot, Salesforce, Pipedrive, RD Station, sistema próprio..." />
+          </div>
+          <div class="field-group">
+            <label class="field-label">Outras integrações desejadas? <span class="multi-hint">(múltipla escolha)</span></label>
+            <div class="chips-wrap" data-field="outras_integracoes" data-multiple="true">
+              <button class="chip" type="button">Google Agenda / Cal.com</button>
+              <button class="chip" type="button">E-mail marketing</button>
+              <button class="chip" type="button">ERP / sistema de pedidos</button>
+              <button class="chip" type="button">Plataforma de e-commerce</button>
+              <button class="chip" type="button">API própria</button>
+              <button class="chip" type="button">Nenhuma por enquanto</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 7 — Prazo e orçamento -->
+    <section class="quiz-section" data-section="6" aria-labelledby="s6-title">
+      <div class="section-inner">
+        <span class="section-badge">7 de 8 · Prazo e orçamento</span>
+        <h2 class="section-title" id="s6-title">Expectativas de prazo e investimento</h2>
+        <p class="section-desc">Informações importantes para formatar a proposta corretamente.</p>
+        <div class="fields-wrap">
+          <div class="field-group">
+            <label class="field-label">Qual o prazo ideal para o projeto entrar no ar?</label>
+            <div class="chips-wrap" data-field="prazo" data-multiple="false">
+              <button class="chip" type="button">O mais rápido possível</button>
+              <button class="chip" type="button">Em até 30 dias</button>
+              <button class="chip" type="button">1 a 3 meses</button>
+              <button class="chip" type="button">Mais de 3 meses</button>
+              <button class="chip" type="button">Sem prazo definido</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Há uma faixa de investimento em mente?</label>
+            <div class="chips-wrap" data-field="orcamento_faixa" data-multiple="false">
+              <button class="chip" type="button">Até R$ 3.000</button>
+              <button class="chip" type="button">R$ 3.000–10.000</button>
+              <button class="chip" type="button">R$ 10.000–30.000</button>
+              <button class="chip" type="button">Acima de R$ 30.000</button>
+              <button class="chip" type="button">Prefiro receber sugestão</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Como prefere contratar?</label>
+            <div class="chips-wrap" data-field="modelo_contratacao" data-multiple="false">
+              <button class="chip" type="button">Projeto fechado (escopo fixo)</button>
+              <button class="chip" type="button">Mensalidade / retainer</button>
+              <button class="chip" type="button">Misto (setup + mensalidade)</button>
+              <button class="chip" type="button">Não sei, quero orientação</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 8 — Contexto adicional -->
+    <section class="quiz-section" data-section="7" aria-labelledby="s7-title">
+      <div class="section-inner">
+        <span class="section-badge">8 de 8 · Contexto adicional</span>
+        <h2 class="section-title" id="s7-title">Últimas perguntas</h2>
+        <p class="section-desc">Detalhes que fazem diferença na hora de montar uma proposta precisa.</p>
+        <div class="fields-wrap">
+          <div class="field-group">
+            <label class="field-label">Já tentou implementar algo parecido antes?</label>
+            <div class="chips-wrap" data-field="tentativas_anteriores" data-multiple="false">
+              <button class="chip" type="button">Sim, e não funcionou bem</button>
+              <button class="chip" type="button">Sim, mas foi abandonado</button>
+              <button class="chip" type="button">Não, é a primeira vez</button>
+              <button class="chip" type="button">Estamos avaliando opções</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Quem toma a decisão final de aprovação?</label>
+            <div class="chips-wrap" data-field="decisor" data-multiple="false">
+              <button class="chip" type="button">Eu mesmo</button>
+              <button class="chip" type="button">Sócio / diretor</button>
+              <button class="chip" type="button">Comitê / board</button>
+              <button class="chip" type="button">Ainda não definido</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="q-obs">Algo mais que queira compartilhar?</label>
+            <textarea class="field-textarea" id="q-obs" name="observacoes" placeholder="Contexto específico, restrições técnicas, expectativas especiais..." rows="4"></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELA DE CONCLUSÃO -->
+    <section class="quiz-section quiz-done" data-section="8" aria-labelledby="done-title">
+
+      <div class="done-state" id="state-sending" style="display:none">
+        <div class="sending-spinner" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10" stroke-opacity="0.2"/><path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/></svg>
+        </div>
+        <p class="done-sending-text">Enviando suas respostas…</p>
+      </div>
+
+      <div class="done-state section-inner done-inner" id="state-success" style="display:none">
+        <div class="done-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2 class="section-title done-title" id="done-title">Obrigado pelo seu tempo!</h2>
+        <p class="section-desc done-desc">
+          Suas respostas foram recebidas com sucesso.<br/>
+          Vamos analisar o seu perfil e entraremos em contato em breve com uma proposta personalizada.
+        </p>
+        <div class="done-tag" aria-hidden="true">🚀 Em breve você receberá nosso contato</div>
+        <a href="index.html" class="btn-back-home">Voltar ao início</a>
+      </div>
+
+      <div class="done-state section-inner done-inner" id="state-error" style="display:none">
+        <div class="done-icon done-icon--error" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h2 class="section-title done-title">Algo deu errado</h2>
+        <p class="section-desc">Não foi possível enviar suas respostas agora. Tente novamente ou entre em contato diretamente.</p>
+        <button class="btn-retry" id="btn-retry" type="button">Tentar novamente</button>
+        <a href="index.html" class="btn-back-home">Voltar ao início</a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <nav class="quiz-nav" role="navigation" aria-label="Navegação do questionário">
+    <button class="nav-btn nav-prev" id="btn-prev" type="button" aria-label="Seção anterior" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Anterior
+    </button>
+    <div class="step-dots" id="step-dots" aria-hidden="true"></div>
+    <button class="nav-btn nav-next" id="btn-next" type="button" aria-label="Próxima seção">
+      Próximo
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </nav>
+
+  <script src="orcamento.js"></script>
+</body>
+</html>
