@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Proposta de Projeto — Anderson Quintanilha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="consultoria-fma.css" />
+</head>
+
+<body>
+
+  <!-- Canvas partículas -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Glow ambiental -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="glow-orb glow-orb--top"></div>
+    <div class="glow-orb glow-orb--bottom"></div>
+  </div>
+
+  <!-- ===================== TELA DE SENHA ===================== -->
+  <div class="lock-screen" id="lock-screen" role="main" aria-label="Acesso protegido">
+    <div class="lock-card">
+
+      <div class="lock-logo" aria-label="AQ — Anderson Quintanilha">
+        <span class="logo-a">A</span><span class="logo-slash">/</span><span class="logo-q">Q</span>
+      </div>
+
+      <div class="lock-icon-wrapper" aria-hidden="true">
+        <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        </svg>
+      </div>
+
+      <div class="lock-text">
+        <h1 class="lock-title">Acesso Restrito</h1>
+        <p class="lock-subtitle">Insira o código de acesso para visualizar o conteúdo desta proposta.</p>
+      </div>
+
+      <form class="lock-form" id="lock-form" autocomplete="off" aria-label="Formulário de acesso">
+        <div class="input-wrapper" id="input-wrapper">
+          <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" />
+          </svg>
+          <input
+            type="password"
+            id="password-input"
+            class="lock-input"
+            placeholder="Código de acesso"
+            aria-label="Campo de código de acesso"
+            autocomplete="new-password"
+            spellcheck="false"
+          />
+          <button type="button" class="toggle-visibility" id="toggle-visibility" aria-label="Mostrar ou ocultar senha">
+            <svg id="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </button>
+        </div>
+
+        <p class="lock-error" id="lock-error" aria-live="polite" role="alert"></p>
+
+        <button type="submit" class="lock-btn" id="lock-btn">
+          <span class="btn-text">Acessar</span>
+          <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ===================== CONTEÚDO PROTEGIDO ===================== -->
+  <div class="content-page" id="content-page" aria-hidden="true" style="display:none;">
+
+    <!-- Header fixo -->
+    <header class="site-header" role="banner">
+      <div class="header-inner">
+        <div class="header-logo" aria-label="Anderson Quintanilha">
+          <span class="logo-a">A</span><span class="logo-slash">/</span><span class="logo-q">Q</span>
+        </div>
+        <div class="header-badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          Proposta de Consultoria
+        </div>
+      </div>
+    </header>
+
+    <main class="doc-wrapper" role="main">
+      <div class="doc-container">
+
+        <!-- ===================== INTRO ===================== -->
+        <section class="doc-intro reveal-el" aria-label="Introdução">
+          <div class="intro-label">Proposta Inicial</div>
+          <h1 class="intro-title">Diagnóstico e Estruturação do Projeto</h1>
+          <div class="intro-divider" aria-hidden="true"></div>
+          <p class="intro-text">
+            Minha proposta inicial é atuar em uma fase de diagnóstico e estruturação do projeto. Antes de propor mudanças ou direcionamentos, pretendo entender o estado atual do CRM, analisar a documentação existente, entrevistar usuários-chave da operação e identificar os principais gaps entre a necessidade da empresa e o que está sendo desenvolvido. A partir disso, construirei um plano de priorização e uma rotina de acompanhamento para acelerar a evolução do projeto.
+          </p>
+
+          <div class="diagnostic-card reveal-el">
+            <div class="diagnostic-header">
+              <div class="diag-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /><path d="M11 8v6M8 11h6" />
+                </svg>
+              </div>
+              <h2 class="diagnostic-title">Diagnóstico Inicial</h2>
+            </div>
+            <ul class="diagnostic-list" role="list">
+              <li class="diag-item">
+                <span class="diag-bullet" aria-hidden="true"></span>
+                Onde o projeto realmente está
+              </li>
+              <li class="diag-item">
+                <span class="diag-bullet" aria-hidden="true"></span>
+                O que já foi decidido
+              </li>
+              <li class="diag-item">
+                <span class="diag-bullet" aria-hidden="true"></span>
+                O que já foi desenvolvido
+              </li>
+              <li class="diag-item">
+                <span class="diag-bullet" aria-hidden="true"></span>
+                O que a operação precisa
+              </li>
+              <li class="diag-item">
+                <span class="diag-bullet" aria-hidden="true"></span>
+                Onde estão os gargalos
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ===================== FASES ===================== -->
+        <section class="phases-section" aria-label="Fases do projeto">
+          <div class="section-label reveal-el">Fases Iniciais do Projeto</div>
+
+          <!-- FASE 1 -->
+          <article class="phase-card reveal-el" id="fase-1" aria-labelledby="fase1-title">
+            <div class="phase-header">
+              <div class="phase-number" aria-hidden="true">01</div>
+              <div class="phase-info">
+                <h2 class="phase-title" id="fase1-title">Imersão e Diagnóstico</h2>
+                <p class="phase-desc">
+                  O objetivo desta fase é compreender o cenário atual do projeto, identificando seu estágio de desenvolvimento, desafios, expectativas e necessidades das áreas envolvidas. Para isso, serão analisados os materiais existentes, realizadas entrevistas com os principais stakeholders e avaliado o sistema já desenvolvido.
+                </p>
+                <p class="phase-desc">
+                  Ao final, será entregue um diagnóstico consolidado com os principais pontos de atenção, oportunidades de melhoria e recomendações iniciais, criando uma base sólida para direcionar as próximas etapas e acelerar a evolução do projeto com maior clareza e alinhamento entre negócio e desenvolvimento.
+                </p>
+              </div>
+            </div>
+
+            <div class="phase-body">
+
+              <div class="phase-objective">
+                <h3 class="obj-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+                  </svg>
+                  Objetivo da primeira fase
+                </h3>
+                <p class="obj-subtitle">Ao final da primeira semana devemos conseguir entender:</p>
+                <ol class="obj-list" role="list">
+                  <li>Onde o projeto realmente está?</li>
+                  <li>O que já foi construído?</li>
+                  <li>O que ainda falta?</li>
+                  <li>Quais são os principais gargalos?</li>
+                  <li>Quais são as expectativas dos stakeholders?</li>
+                  <li>Qual é a percepção de cada grupo?</li>
+                  <li>Existe alinhamento entre as partes?</li>
+                </ol>
+              </div>
+
+              <div class="deliverable-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+                </svg>
+                <span><strong>Entregável:</strong> Relatório de diagnóstico inicial</span>
+              </div>
+
+              <div class="activities-group">
+                <h3 class="activities-title">Atividades</h3>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Reunião de Kickoff com principais stakeholders</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-request">Solicitar:</p>
+                    <p class="activity-text">Agendamento de Call individual de 30~45m com: <span class="highlight-name">Leonardo Esteves</span>, <span class="highlight-name">Leonardo Martins</span>, <span class="highlight-name">Nícholas Araújo</span>, <span class="highlight-name">William Mattos</span>, <span class="highlight-name">Verônica Marvilla</span>, <span class="highlight-name">Juliana Oliveira</span> e <span class="highlight-name">Natalia</span>.</p>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Levantamento documental</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-request">Solicitar:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Requisitos</li>
+                      <li>Fluxogramas</li>
+                      <li>Protótipos</li>
+                      <li>Cronogramas</li>
+                      <li>Atas</li>
+                      <li>Backlog</li>
+                      <li>Contrato (se possível)</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Avaliação do sistema</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Caso exista ambiente de testes:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Navegar pelo sistema</li>
+                      <li>Testar fluxos</li>
+                      <li>Identificar lacunas</li>
+                      <li>Registrar observações</li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </article>
+
+          <!-- FASE 2 -->
+          <article class="phase-card reveal-el" id="fase-2" aria-labelledby="fase2-title">
+            <div class="phase-header">
+              <div class="phase-number" aria-hidden="true">02</div>
+              <div class="phase-info">
+                <h2 class="phase-title" id="fase2-title">Validação Operacional e Alinhamento de Necessidades</h2>
+                <p class="phase-desc">
+                  O objetivo desta fase é aprofundar o entendimento da operação e validar se o CRM está sendo desenvolvido de acordo com as necessidades reais do negócio. Para isso, serão realizadas entrevistas com usuários-chave, análise dos processos operacionais e identificação de gargalos, oportunidades e necessidades ainda não contempladas pelo sistema.
+                </p>
+                <p class="phase-desc">
+                  Ao final, será entregue um mapeamento dos processos críticos da operação, uma consolidação das necessidades identificadas e uma priorização inicial das demandas, criando uma base estruturada para direcionar os próximos ciclos de desenvolvimento com maior aderência à realidade da assistência 24 horas.
+                </p>
+              </div>
+            </div>
+
+            <div class="phase-body">
+
+              <div class="phase-objective">
+                <h3 class="obj-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+                  </svg>
+                  Objetivo da segunda fase
+                </h3>
+                <p class="obj-subtitle">Ao final desta etapa devemos conseguir entender:</p>
+                <ol class="obj-list" role="list">
+                  <li>Como os processos funcionam atualmente na prática?</li>
+                  <li>Quais são os principais gargalos operacionais?</li>
+                  <li>Onde existem retrabalhos, controles paralelos ou perda de informações?</li>
+                  <li>Quais necessidades já estão contempladas pelo CRM?</li>
+                  <li>Quais necessidades ainda não foram atendidas?</li>
+                  <li>Existem divergências entre a operação e o que está sendo desenvolvido?</li>
+                  <li>Quais funcionalidades são críticas para a operação?</li>
+                  <li>Quais demandas devem ser priorizadas nas próximas entregas?</li>
+                </ol>
+              </div>
+
+              <div class="deliverable-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+                </svg>
+                <span><strong>Entregável:</strong> Relatório de Mapeamento Operacional e Levantamento de Necessidades</span>
+              </div>
+
+              <div class="activities-group">
+                <h3 class="activities-title">Atividades</h3>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Entrevistas com usuários-chave</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Realizar entrevistas com colaboradores das áreas operacionais para compreender os fluxos atuais, identificar dificuldades do dia a dia e levantar oportunidades de melhoria.</p>
+                    <p class="activity-request">Áreas sugeridas:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Atendimento 24h (atendimento, valores, qualidade, backoffice e supervisão)</li>
+                      <li>Documentação</li>
+                      <li>Financeiro</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Mapeamento dos processos</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Documentar os fluxos operacionais mais relevantes para o funcionamento da assistência.</p>
+                    <p class="activity-request">Exemplos:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Abertura e acompanhamento de atendimentos</li>
+                      <li>Acionamento de prestadores</li>
+                      <li>Controle de documentos</li>
+                      <li>Gestão de pendências</li>
+                      <li>Processos administrativos e financeiros relacionados ao atendimento</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Identificação de gargalos operacionais</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Mapear pontos de ineficiência e riscos existentes nos processos atuais.</p>
+                    <p class="activity-request">Identificar:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Retrabalhos</li>
+                      <li>Controles em planilhas</li>
+                      <li>Dependência de WhatsApp</li>
+                      <li>Processos manuais</li>
+                      <li>Falta de rastreabilidade</li>
+                      <li>Perda de informações</li>
+                      <li>Falhas de comunicação entre áreas</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Validação do CRM frente à operação</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Comparar os processos mapeados com as funcionalidades já existentes no sistema.</p>
+                    <p class="activity-request">Identificar:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Funcionalidades aderentes</li>
+                      <li>Funcionalidades incompletas</li>
+                      <li>Necessidades não contempladas</li>
+                      <li>Oportunidades de melhoria</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Priorização inicial das demandas</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Classificar as necessidades identificadas conforme seu impacto operacional.</p>
+                    <div class="priority-tags" role="list" aria-label="Categorias de prioridade">
+                      <span class="priority-tag priority-tag--critical" role="listitem">🔴 Crítico — necessário para operação</span>
+                      <span class="priority-tag priority-tag--important" role="listitem">🟡 Importante — ganho de produtividade e controle</span>
+                      <span class="priority-tag priority-tag--evolve" role="listitem">🟢 Evolutivo — melhorias futuras</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </article>
+
+          <!-- FASE 3 -->
+          <article class="phase-card reveal-el" id="fase-3" aria-labelledby="fase3-title">
+            <div class="phase-header">
+              <div class="phase-number" aria-hidden="true">03</div>
+              <div class="phase-info">
+                <h2 class="phase-title" id="fase3-title">Consolidação, Priorização e Planejamento</h2>
+                <p class="phase-desc">
+                  O objetivo desta fase é consolidar os aprendizados obtidos nas etapas anteriores, transformando as necessidades identificadas em um plano estruturado para continuidade do projeto. A partir da análise dos processos, gargalos e requisitos levantados, serão definidas prioridades, identificadas lacunas entre a operação e o sistema e estabelecidos direcionamentos para os próximos ciclos de desenvolvimento.
+                </p>
+                <p class="phase-desc">
+                  Ao final, será entregue um plano de priorização das demandas, contendo recomendações para evolução do CRM, definição de iniciativas críticas e uma proposta de organização do backlog, proporcionando maior previsibilidade e alinhamento entre as áreas de negócio e desenvolvimento.
+                </p>
+              </div>
+            </div>
+
+            <div class="phase-body">
+
+              <div class="phase-objective">
+                <h3 class="obj-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+                  </svg>
+                  Objetivo da terceira fase
+                </h3>
+                <p class="obj-subtitle">Ao final desta etapa devemos conseguir responder:</p>
+                <ol class="obj-list" role="list">
+                  <li>Quais demandas possuem maior impacto para a operação?</li>
+                  <li>Quais funcionalidades devem ser priorizadas?</li>
+                  <li>Quais necessidades já estão atendidas pelo sistema?</li>
+                  <li>Quais lacunas precisam ser tratadas?</li>
+                  <li>Quais entregas podem gerar valor mais rapidamente?</li>
+                  <li>Como organizar as próximas etapas do desenvolvimento?</li>
+                  <li>Existe alinhamento entre as prioridades da operação e do projeto?</li>
+                </ol>
+              </div>
+
+              <div class="deliverable-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+                </svg>
+                <span><strong>Entregável:</strong> Plano de Priorização e Roadmap de Evolução do Projeto</span>
+              </div>
+
+              <div class="activities-group">
+                <h3 class="activities-title">Atividades</h3>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Consolidação dos levantamentos</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Reunir e analisar todas as informações coletadas nas fases anteriores.</p>
+                    <p class="activity-request">Consolidar:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Processos mapeados</li>
+                      <li>Necessidades identificadas</li>
+                      <li>Gargalos operacionais</li>
+                      <li>Requisitos levantados</li>
+                      <li>Pontos de melhoria</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Análise de aderência</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Comparar as necessidades da operação com o estágio atual do CRM.</p>
+                    <p class="activity-request">Identificar:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Funcionalidades aderentes</li>
+                      <li>Funcionalidades incompletas</li>
+                      <li>Necessidades não atendidas</li>
+                      <li>Oportunidades de evolução</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Priorização das demandas</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Classificar as iniciativas conforme impacto para o negócio e esforço de implementação.</p>
+                    <div class="priority-tags" role="list" aria-label="Categorias de prioridade">
+                      <span class="priority-tag priority-tag--critical" role="listitem">🔴 Alta prioridade / Crítico</span>
+                      <span class="priority-tag priority-tag--important" role="listitem">🟡 Média prioridade / Importante</span>
+                      <span class="priority-tag priority-tag--evolve" role="listitem">🟢 Baixa prioridade / Evolutivo</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Estruturação do backlog</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Organizar as demandas em um backlog único e estruturado.</p>
+                    <p class="activity-request">Definir:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Descrição da necessidade</li>
+                      <li>Objetivo de negócio</li>
+                      <li>Prioridade</li>
+                      <li>Responsável pela validação</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Definição do roadmap inicial</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Propor uma sequência lógica para evolução do projeto.</p>
+                    <p class="activity-request">Considerar:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Dependências entre funcionalidades</li>
+                      <li>Impacto operacional</li>
+                      <li>Complexidade de implementação</li>
+                      <li>Ganhos rápidos (quick wins)</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Apresentação dos resultados</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Realizar reunião de alinhamento com os principais stakeholders para apresentação das conclusões, validação das prioridades e definição dos próximos passos.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </article>
+
+          <!-- FASE 4 -->
+          <article class="phase-card reveal-el" id="fase-4" aria-labelledby="fase4-title">
+            <div class="phase-header">
+              <div class="phase-number" aria-hidden="true">04</div>
+              <div class="phase-info">
+                <h2 class="phase-title" id="fase4-title">Governança, Acompanhamento e Apoio à Execução</h2>
+                <p class="phase-desc">
+                  O objetivo desta fase é estabelecer uma rotina de acompanhamento do projeto, garantindo alinhamento contínuo entre FMA e ELO, apoiando a tomada de decisões e contribuindo para que as prioridades definidas sejam executadas de forma organizada e previsível.
+                </p>
+                <p class="phase-desc">
+                  A partir dos direcionamentos definidos nas fases anteriores, será implantado um modelo de governança para acompanhamento das entregas, tratamento de impedimentos, validação das funcionalidades desenvolvidas e gestão das decisões necessárias para evolução do sistema.
+                </p>
+                <p class="phase-desc">
+                  Ao final, o projeto deverá possuir uma estrutura de acompanhamento clara, com responsabilidades definidas, prioridades alinhadas e um processo contínuo de evolução e validação das entregas.
+                </p>
+              </div>
+            </div>
+
+            <div class="phase-body">
+
+              <div class="phase-objective">
+                <h3 class="obj-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+                  </svg>
+                  Objetivo da quarta fase
+                </h3>
+                <p class="obj-subtitle">Ao final desta etapa devemos conseguir responder:</p>
+                <ol class="obj-list" role="list">
+                  <li>As prioridades definidas estão sendo executadas?</li>
+                  <li>Os impedimentos estão sendo identificados e tratados rapidamente?</li>
+                  <li>As entregas estão atendendo às necessidades da operação?</li>
+                  <li>Existe alinhamento entre FMA e Elo sobre os próximos passos?</li>
+                  <li>As decisões necessárias estão sendo tomadas no momento adequado?</li>
+                  <li>O backlog está sendo mantido atualizado?</li>
+                  <li>O projeto possui previsibilidade sobre as próximas entregas?</li>
+                </ol>
+              </div>
+
+              <div class="deliverables-grid">
+                <h3 class="deliverables-title">Entregáveis</h3>
+                <div class="deliverables-list" role="list">
+                  <div class="deliverable-item" role="listitem">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    Modelo de Governança do Projeto
+                  </div>
+                  <div class="deliverable-item" role="listitem">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    Rotina de acompanhamento das entregas
+                  </div>
+                  <div class="deliverable-item" role="listitem">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    Registro de decisões do projeto
+                  </div>
+                  <div class="deliverable-item" role="listitem">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    Lista de decisões pendentes
+                  </div>
+                  <div class="deliverable-item" role="listitem">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    Relatórios periódicos de acompanhamento
+                  </div>
+                  <div class="deliverable-item" role="listitem">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    Processo de validação e homologação das entregas
+                  </div>
+                </div>
+              </div>
+
+              <div class="activities-group">
+                <h3 class="activities-title">Atividades</h3>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Implantação da rotina de acompanhamento</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Definir uma cadência de reuniões periódicas entre os envolvidos.</p>
+                    <p class="activity-request">Sugestão:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Reunião semanal de acompanhamento</li>
+                      <li>Reunião mensal executiva</li>
+                      <li>Reuniões extraordinárias para temas críticos</li>
+                    </ul>
+                    <p class="activity-request" style="margin-top: 0.75rem;">Objetivo:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Acompanhar andamento das entregas</li>
+                      <li>Identificar impedimentos</li>
+                      <li>Revisar prioridades</li>
+                      <li>Validar próximos passos</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Gestão do backlog</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Acompanhar continuamente as demandas identificadas.</p>
+                    <p class="activity-request">Garantir:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Priorização atualizada</li>
+                      <li>Inclusão de novas necessidades</li>
+                      <li>Registro de mudanças de escopo</li>
+                      <li>Controle das demandas em andamento</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Gestão de impedimentos</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Identificar e acompanhar bloqueios que possam impactar o andamento do projeto.</p>
+                    <p class="activity-request">Exemplos:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Falta de definição de regras de negócio</li>
+                      <li>Dependências entre áreas</li>
+                      <li>Necessidade de validações</li>
+                      <li>Dificuldades técnicas</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Gestão de decisões</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Registrar decisões relevantes tomadas durante o projeto.</p>
+                    <p class="activity-request">Documentar:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Decisão</li>
+                      <li>Contexto</li>
+                      <li>Responsável</li>
+                      <li>Data</li>
+                      <li>Impactos</li>
+                    </ul>
+                    <p class="activity-text" style="margin-top: 0.75rem;">Manter também uma lista atualizada de decisões pendentes que estejam bloqueando ou impactando o desenvolvimento.</p>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Validação das entregas</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Participar da homologação das funcionalidades desenvolvidas.</p>
+                    <p class="activity-request">Avaliar:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Aderência aos requisitos</li>
+                      <li>Aderência à operação</li>
+                      <li>Impactos nos processos</li>
+                      <li>Necessidade de ajustes</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Comunicação entre as partes</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Atuar como facilitador entre FMA e Elo.</p>
+                    <p class="activity-request">Objetivos:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Reduzir ruídos de comunicação</li>
+                      <li>Traduzir necessidades operacionais em requisitos claros</li>
+                      <li>Apoiar esclarecimentos de regras de negócio</li>
+                      <li>Garantir alinhamento entre expectativas e entregas</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="activity-item">
+                  <div class="activity-header">
+                    <div class="activity-dot" aria-hidden="true"></div>
+                    <h4 class="activity-name">Relatórios de acompanhamento</h4>
+                  </div>
+                  <div class="activity-body">
+                    <p class="activity-text">Consolidar periodicamente o status do projeto.</p>
+                    <p class="activity-request">Informações sugeridas:</p>
+                    <ul class="activity-list" role="list">
+                      <li>Demandas concluídas</li>
+                      <li>Demandas em andamento</li>
+                      <li>Demandas pendentes</li>
+                      <li>Riscos identificados</li>
+                      <li>Impedimentos</li>
+                      <li>Decisões pendentes</li>
+                      <li>Próximos passos</li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </article>
+
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="doc-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="footer-divider-line" aria-hidden="true"></div>
+        <div class="footer-content">
+          <div class="footer-logo-wrap">
+            <span class="logo-a">A</span><span class="logo-slash">/</span><span class="logo-q">Q</span>
+          </div>
+          <p class="footer-tagline">
+            Sistemas <span class="highlight">inteligentes</span>. Resultados <span class="highlight">reais</span>.
+          </p>
+          <p class="footer-copy">
+            &copy; <span id="current-year-doc"></span> Anderson Quintanilha. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /content-page -->
+
+  <script src="consultoria-fma.js"></script>
+</body>
+
+</html>
