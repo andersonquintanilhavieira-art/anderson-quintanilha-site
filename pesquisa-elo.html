@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Satisfação - Projeto ELO</title>
+    <meta name="description" content="Pesquisa de satisfação do primeiro mês de trabalho no desenvolvimento do Sistema ELO.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="pesquisa-elo.css">
+</head>
+<body>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <main class="survey-container">
+        <header class="survey-header fade-in">
+            <!-- Avatar -->
+            <div class="avatar-wrapper" aria-hidden="true">
+                <div class="avatar-ring"></div>
+                <div class="avatar-ring avatar-ring--outer"></div>
+                <img src="avatar.png" alt="Foto de Anderson Quintanilha" class="avatar-img" width="120" height="120" />
+                <div class="avatar-status" aria-label="Status">
+                    <span class="status-dot"></span>
+                </div>
+            </div>
+
+            <!-- Nome e Título -->
+            <div class="name-block">
+                <h1 class="name">
+                    <span class="name--highlight">Anderson</span>
+                    <span class="name--regular">Quintanilha</span>
+                </h1>
+            </div>
+
+            <div class="title-wrapper">
+                <div class="title-line"></div>
+                <h2 class="title-text">Pesquisa de Satisfação — 1º mês ELO</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="header-desc">
+                <p class="highlight-text">O preenchimento leva cerca de 2 minutos.</p>
+            </div>
+        </header>
+
+        <form id="survey-form" class="survey-form">
+            
+            <!-- PERGUNTA 1 -->
+            <section class="question-card fade-in delay-1" data-question="1">
+                <h2>1. De 0 a 10, qual sua satisfação com o andamento do projeto até o momento? <span class="required">*</span></h2>
+                <div class="scale-options">
+                    <div class="scale-labels">
+                        <span>0 - Muito Insatisfeito</span>
+                        <span>10 - Muito Satisfeito</span>
+                    </div>
+                    <div class="radio-group-horizontal" id="q1-group">
+                        <!-- Gerado via JS para 0 a 10 -->
+                    </div>
+                </div>
+
+                <!-- Condicionais da P1 -->
+                <div id="q1-conditional-container" class="conditional-field hidden">
+                    <label id="q1-conditional-label" for="feedbackSatisfacao" class="font-display"></label>
+                    <textarea id="feedbackSatisfacao" name="feedbackSatisfacao" rows="3" placeholder="Sua resposta..."></textarea>
+                    <span class="error-msg hidden">Por favor, preencha este campo obrigatório.</span>
+                </div>
+
+                <div class="step-navigation">
+                    <div></div> <!-- Empty div for flex space-between -->
+                    <button type="button" class="btn-next">Avançar</button>
+                </div>
+            </section>
+
+            <!-- PERGUNTA 2 -->
+            <section class="question-card fade-in delay-2" data-question="2">
+                <h2>2. Antes do início deste projeto, qual era seu nível de confiança na evolução do Sistema ELO? <span class="required">*</span></h2>
+                <div class="scale-options">
+                    <div class="scale-labels">
+                        <span>0 - Nenhuma confiança</span>
+                        <span>10 - Total confiança</span>
+                    </div>
+                    <div class="radio-group-horizontal" id="q2-group">
+                        <!-- Gerado via JS para 0 a 10 -->
+                    </div>
+                </div>
+                <div class="step-navigation">
+                    <button type="button" class="btn-secondary btn-prev">Voltar</button>
+                    <button type="button" class="btn-next">Avançar</button>
+                </div>
+            </section>
+
+            <!-- PERGUNTA 3 -->
+            <section class="question-card fade-in delay-3" data-question="3">
+                <h2>3. E hoje, qual é esse nível de confiança? <span class="required">*</span></h2>
+                <div class="scale-options">
+                    <div class="scale-labels">
+                        <span>0 - Nenhuma confiança</span>
+                        <span>10 - Total confiança</span>
+                    </div>
+                    <div class="radio-group-horizontal" id="q3-group">
+                        <!-- Gerado via JS para 0 a 10 -->
+                    </div>
+                </div>
+                <div class="step-navigation">
+                    <button type="button" class="btn-secondary btn-prev">Voltar</button>
+                    <button type="button" class="btn-next">Avançar</button>
+                </div>
+            </section>
+
+            <!-- PERGUNTA 4 -->
+            <section class="question-card fade-in delay-4" data-question="4">
+                <h2>4. Como você avalia a comunicação durante o projeto? <span class="required">*</span></h2>
+                <div class="radio-group-vertical">
+                    <label class="radio-label"><input type="radio" name="avaliacaoComunicacao" value="Excelente"> <span class="custom-radio"></span>Excelente</label>
+                    <label class="radio-label"><input type="radio" name="avaliacaoComunicacao" value="Boa"> <span class="custom-radio"></span>Boa</label>
+                    <label class="radio-label"><input type="radio" name="avaliacaoComunicacao" value="Regular"> <span class="custom-radio"></span>Regular</label>
+                    <label class="radio-label"><input type="radio" name="avaliacaoComunicacao" value="Ruim"> <span class="custom-radio"></span>Ruim</label>
+                    <label class="radio-label"><input type="radio" name="avaliacaoComunicacao" value="Muito ruim"> <span class="custom-radio"></span>Muito ruim</label>
+                </div>
+                <div class="step-navigation">
+                    <button type="button" class="btn-secondary btn-prev">Voltar</button>
+                    <button type="button" class="btn-next">Avançar</button>
+                </div>
+            </section>
+
+            <!-- PERGUNTA 5 -->
+            <section class="question-card fade-in delay-5" data-question="5">
+                <h2>5. Como você avalia o trabalho realizado durante o projeto? <span class="required">*</span></h2>
+                <div class="radio-group-vertical">
+                    <label class="radio-label"><input type="radio" name="avaliacaoTrabalho" value="Excelente"> <span class="custom-radio"></span>Excelente</label>
+                    <label class="radio-label"><input type="radio" name="avaliacaoTrabalho" value="Bom"> <span class="custom-radio"></span>Bom</label>
+                    <label class="radio-label"><input type="radio" name="avaliacaoTrabalho" value="Regular"> <span class="custom-radio"></span>Regular</label>
+                    <label class="radio-label"><input type="radio" name="avaliacaoTrabalho" value="Ruim"> <span class="custom-radio"></span>Ruim</label>
+                    <label class="radio-label"><input type="radio" name="avaliacaoTrabalho" value="Muito ruim"> <span class="custom-radio"></span>Muito ruim</label>
+                </div>
+                <div class="step-navigation">
+                    <button type="button" class="btn-secondary btn-prev">Voltar</button>
+                    <button type="button" class="btn-next">Avançar</button>
+                </div>
+            </section>
+
+            <!-- PERGUNTA 6 -->
+            <section class="question-card fade-in delay-6" data-question="6">
+                <h2>6. Caso queira deixar um comentário ou depoimento sobre sua experiência até aqui, utilize o espaço abaixo.</h2>
+                <textarea id="comentario" name="comentario" rows="4" placeholder="Deixe seu comentário (opcional)..."></textarea>
+                <div class="step-navigation">
+                    <button type="button" class="btn-secondary btn-prev">Voltar</button>
+                    <button type="button" class="btn-next">Avançar</button>
+                </div>
+            </section>
+
+            <!-- PERGUNTA 7 -->
+            <section class="question-card fade-in delay-7" data-question="7">
+                <h2>7. Nome</h2>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome (opcional)">
+                <div class="step-navigation">
+                    <button type="button" class="btn-secondary btn-prev">Voltar</button>
+                    <button type="button" class="btn-next">Avançar</button>
+                </div>
+            </section>
+
+            <!-- PERGUNTA 8 -->
+            <section class="question-card fade-in delay-8" data-question="8">
+                <h2>8. Autoriza que sua pesquisa seja utilizada como depoimento em materiais de divulgação? <span class="required">*</span></h2>
+                <div class="radio-group-vertical">
+                    <label class="radio-label"><input type="radio" name="autorizacaoMarketing" value="Sim, com meu nome."> <span class="custom-radio"></span>Sim, com meu nome.</label>
+                    <label class="radio-label"><input type="radio" name="autorizacaoMarketing" value="Sim, mas de forma anônima."> <span class="custom-radio"></span>Sim, mas de forma anônima.</label>
+                    <label class="radio-label"><input type="radio" name="autorizacaoMarketing" value="Não autorizo."> <span class="custom-radio"></span>Não autorizo.</label>
+                </div>
+                <div class="step-navigation">
+                    <button type="button" class="btn-secondary btn-prev">Voltar</button>
+                    <div class="form-actions" style="margin-top: 0;">
+                        <button type="submit" id="submit-btn" class="btn-primary" disabled>
+                            <span class="btn-text">Enviar pesquisa</span>
+                            <span class="loader hidden"></span>
+                        </button>
+                    </div>
+                </div>
+                <div id="form-error-msg" class="error-msg-global hidden" style="margin-top: 1rem;">Por favor, preencha o campo obrigatório.</div>
+                <div id="network-error-msg" class="error-msg-global hidden" style="margin-top: 1rem;">Não foi possível enviar sua pesquisa neste momento. Tente novamente.</div>
+            </section>
+
+            <!-- Form actions moved to last step -->
+        </form>
+
+        <!-- TELA DE SUCESSO -->
+        <div id="success-screen" class="success-screen hidden">
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
+            <h2 class="font-display">Obrigado!</h2>
+            <p>Sua opinião foi registrada com sucesso.</p>
+            <p>Ela será fundamental para continuarmos evoluindo o Sistema ELO e entregarmos cada vez mais valor para todos os envolvidos.</p>
+        </div>
+
+    </main>
+
+    <script src="pesquisa-elo.js"></script>
+</body>
+</html>
