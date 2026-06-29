@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação do Sistema</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Tela de Login / Início -->
+        <div id="step-form" class="step active glass-panel">
+            <h1>Apresentação do Sistema</h1>
+            <p>Por favor, preencha seus dados para iniciar o treinamento.</p>
+            <form id="intro-form">
+                <div class="input-group">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" required placeholder="Digite seu nome">
+                </div>
+                <div class="input-group">
+                    <label for="whatsapp">WhatsApp</label>
+                    <input type="tel" id="whatsapp" required placeholder="(00) 00000-0000">
+                </div>
+                <div class="input-group">
+                    <label for="setor">Setor</label>
+                    <input type="text" id="setor" required placeholder="Qual o seu setor?">
+                </div>
+                <button type="submit" class="btn-primary">Iniciar Apresentação</button>
+            </form>
+        </div>
+
+        <!-- Tela de Vídeo -->
+        <div id="step-video" class="step glass-panel hidden">
+            <h2 id="video-title">Título do Vídeo</h2>
+            <div class="video-wrapper">
+                <video id="main-video" controls controlsList="nodownload"></video>
+            </div>
+            
+            <div class="input-group">
+                <label for="consideracoes">Suas considerações sobre esta etapa (opcional):</label>
+                <textarea id="consideracoes" rows="3" placeholder="Digite aqui o que você achou, dúvidas ou sugestões..."></textarea>
+            </div>
+            
+            <div class="controls-bar">
+                <div class="speed-controls">
+                    <span class="speed-label">Velocidade:</span>
+                    <button class="btn-speed active" data-speed="1">1x</button>
+                    <button class="btn-speed" data-speed="1.5">1.5x</button>
+                    <button class="btn-speed" data-speed="2">2x</button>
+                </div>
+                <button id="btn-next" class="btn-primary">Próximo Vídeo</button>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </div>
+        
+        <!-- Tela Final -->
+        <div id="step-end" class="step glass-panel hidden">
+            <h2>Apresentação Concluída!</h2>
+            <p>Obrigado por assistir a todos os vídeos do sistema.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
